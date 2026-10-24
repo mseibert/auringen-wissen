@@ -202,8 +202,13 @@ function parse(iso: string) {
 	)
 }
 
-<style>
-	.events {
+<style is:global>
+	/*
+	 * Global, weil der Client die Liste neu aufbaut und dabei die
+	 * Scope-Klasse von Astro verliert. Alles haengt am .event-list-Wrapper,
+	 * damit nichts anderes im Stylesheet getroffen wird.
+	 */
+	.event-list .events {
 		list-style: none;
 		padding: 0;
 		margin: 0;
@@ -211,18 +216,19 @@ function parse(iso: string) {
 		flex-direction: column;
 		gap: 0.9rem;
 	}
-	.event {
+	.event-list .event {
 		display: flex;
 		gap: 1.1rem;
 		padding: 1rem 1.2rem;
 		border: 1px solid var(--sl-color-gray-5);
 		border-radius: 0.6rem;
 		background: var(--sl-color-bg-nav);
+		list-style: none;
 	}
-	.event.cancelled {
+	.event-list .event.cancelled {
 		opacity: 0.65;
 	}
-	.when {
+	.event-list .when {
 		flex: 0 0 3.4rem;
 		display: flex;
 		flex-direction: column;
@@ -231,37 +237,37 @@ function parse(iso: string) {
 		border-right: 1px solid var(--sl-color-gray-5);
 		padding-right: 0.9rem;
 	}
-	.weekday {
+	.event-list .weekday {
 		font-size: var(--sl-text-xs);
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
 		color: var(--sl-color-gray-3);
 	}
-	.day {
+	.event-list .day {
 		font-size: 1.7rem;
 		font-weight: 600;
 		color: var(--sl-color-white);
 	}
-	.month {
+	.event-list .month {
 		font-size: var(--sl-text-xs);
 		color: var(--sl-color-gray-3);
 	}
-	.what {
+	.event-list .what {
 		min-width: 0;
 	}
-	.what h3 {
+	.event-list .what h3 {
 		margin: 0;
 		font-size: var(--sl-text-lg);
 		line-height: 1.3;
 	}
-	.what h3 a {
+	.event-list .what h3 a {
 		color: var(--sl-color-white);
 		text-decoration: none;
 	}
-	.what h3 a:hover {
+	.event-list .what h3 a:hover {
 		text-decoration: underline;
 	}
-	.badge {
+	.event-list .badge {
 		margin-left: 0.5rem;
 		font-size: var(--sl-text-xs);
 		font-weight: 500;
@@ -271,17 +277,17 @@ function parse(iso: string) {
 		color: var(--sl-color-orange-high);
 		vertical-align: middle;
 	}
-	.meta {
+	.event-list .meta {
 		margin: 0.3rem 0 0;
 		font-size: var(--sl-text-sm);
 		color: var(--sl-color-gray-3);
 	}
-	.desc {
+	.event-list .desc {
 		margin: 0.5rem 0 0;
 		font-size: var(--sl-text-sm);
 		color: var(--sl-color-gray-2);
 	}
-	.empty {
+	.event-list .empty {
 		color: var(--sl-color-gray-3);
 	}
 </style>
