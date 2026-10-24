@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy auf Coolify auslösen
+        env:
+          COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
+          APP_UUID: ${{ vars.COOLIFY_APP_UUID }}
+        run: |
+          set -euo pipefail
+          if [ -z "$COOLIFY_TOKEN" ]; then
+            echo "::error::Secret COOLIFY_TOKEN fehlt"
+            exit 1
+          fi
+          response=$(curl -fsS -H "Authorization: Bearer $COOLIFY_TOKEN" \
+            "https://coolify.seibert.app/api/v1/deploy?uuid=$APP_UUID")
+          echo "$response"
+          deployment=$(echo "$response" | jq -r '.deployments[0].deployment_uuid')
+          echo "Deployment: $deployment" >> "$GITHUB_STEP_SUMMARY"
