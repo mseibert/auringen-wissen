@@ -133,7 +133,11 @@ function parse(iso: string) {
 			const match = root?.dataset.match ? new RegExp(root.dataset.match, 'i') : null;
 
 			if (root && endpoint) {
-				const tz = { timeZone: 'Europe/Berlin' };
+				// Die Events-App speichert Wandzeit und serialisiert sie mit
+				// toISOString() als UTC. Deshalb hier wie beim ICS-Feed als UTC
+				// formatieren, sonst verschiebt sich die Uhrzeit um die
+				// Zeitzonen-Differenz.
+				const tz = { timeZone: 'UTC' };
 				const dayFmt = new Intl.DateTimeFormat('de-DE', { weekday: 'short', ...tz });
 				const dateFmt = new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', ...tz });
 				const timeFmt = new Intl.DateTimeFormat('de-DE', { hour: '2-digit', minute: '2-digit', ...tz });
