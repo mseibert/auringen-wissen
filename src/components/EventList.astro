@@ -28,10 +28,20 @@ interface Props {
 	limit?: number;
 	live?: boolean;
 	empty?: string;
+	/** Nur Termine, deren Titel passt — z. B. alle Weinstände. */
+	match?: string;
 }
 
-const { events, limit, live = false, empty = 'Derzeit sind keine Termine eingetragen.' } = Astro.props;
-const shown = limit ? events.slice(0, limit) : events;
+const {
+	events,
+	limit,
+	live = false,
+	empty = 'Derzeit sind keine Termine eingetragen.',
+	match,
+} = Astro.props;
+const matcher = match ? new RegExp(match, 'i') : null;
+const filtered = matcher ? events.filter((e) => matcher.test(e.title)) : events;
+const shown = limit ? filtered.slice(0, limit) : filtered;
 const api =
 	import.meta.env.PUBLIC_EVENTS_API ?? 'https://www.auringer-events.de/api/public/events';
 
@@ -65,7 +75,12 @@ function parse(iso: string) {
 }
 ---
 
-<div class="event-list" data-live-events={live ? api : undefined} data-limit={limit ?? ''}>
+<div
+	class="event-list"
+	data-live-events={live ? api : undefined}
+	data-limit={limit ?? ''}
+	data-match={match}
+>
 	{
 		shown.length === 0 ? (
 			<p class="empty">{empty}</p>
@@ -115,6 +130,7 @@ function parse(iso: string) {
 			const root = document.querySelector('[data-live-events]');
 			const endpoint = root?.dataset.liveEvents;
 			const limit = Number(root?.dataset.limit) || 0;
+			const match = root?.dataset.match ? new RegExp(root.dataset.match, 'i') : null;
 
 			if (root && endpoint) {
 				const tz = { timeZone: 'Europe/Berlin' };
@@ -170,7 +186,10 @@ function parse(iso: string) {
 
 				fetch(endpoint, { headers: { accept: 'application/json' } })
 					.then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-					.then((data) => render(limit ? data.events.slice(0, limit) : data.events))
+					.then((data) => {
+						const list = match ? data.events.filter((e) => match.test(e.title)) : data.events;
+						render(limit ? list.slice(0, limit) : list);
+					})
 					.catch(() => {
 						/* Build-Zeit-Stand bleibt stehen */
 					});

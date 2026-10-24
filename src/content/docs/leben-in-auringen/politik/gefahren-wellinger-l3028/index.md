@@ -8,6 +8,8 @@ Der Zweck dieser Seite ist das Dokumentieren und Diskutieren von Problemen in Au
 
 Die Landstraße Wellinger führt am Ortsrand von Auringen vorbei und bietet Zufahrtswege für die Gebiete Tannenring und Edeka. Auf der folgenden Karte sind einige Probleme hinterlegt:
 
+[https://drive.google.com/open?id=1x3zeRV9Jv77RmT_suexDgomyAjo&usp=sharing](https://drive.google.com/open?id=1x3zeRV9Jv77RmT_suexDgomyAjo&usp=sharing)
+
 Schlechter Fahrbahnzustand
 --------------------------
 
@@ -23,14 +25,17 @@ Für Fußgänger stellt der Wellinger ein sehr großes Risiko dar. Gefahrenpoten
 
 - Kein sicheres Überqueren der Fahrbahn möglich um die Feldwege zu erreichen.
 - Überqueren der Fahrbahn notwendig um die Haltestelle Hinkelhaus zu erreichen.
-- Im Bereich August-Ruf-Straße bis Überm Wald ist der Gehweg sehr schmal und ohne Abgrenzung direkt an der Fahrbahn. Die Fahrzeuge passieren mit 70km/h in viel zu geringem Abstand den Gehweg. Der Gehweg ist die einzige Verbindung um Tannenring und Dreiherrenstein zu erreichen. Somit ist es nicht möglich einen sicheren Weg zu wählen. 
+- Im Bereich August-Ruf-Straße bis Überm Wald ist der Gehweg sehr schmal und ohne Abgrenzung direkt an der Fahrbahn. Die Fahrzeuge passieren mit 70km/h in viel zu geringem Abstand den Gehweg. Der Gehweg ist die einzige Verbindung um Tannenring und Dreiherrenstein zu erreichen. Somit ist es nicht möglich einen sicheren Weg zu wählen. 
 - Ab Überm Wald bis Tannenring ist gar kein Gehweg mehr vorhanden, wobei man hier durch die Straße Dreiherrenstein laufen kann.
 - Die Straßenbeleuchtung ist unzureichend.
-  
+
+ 
 
 ## Denkbare Maßnahmen
 
 - Geschwindigkeitsbegrenzung für den gesamten Wellinger auf 50km/h
-- Alternative sicherer Fußgängerverbindung zwischen August-Ruf-Straße bis Überm Wald schaffen.
+- Alternative sicherer Fußgängerverbindung zwischen August-Ruf-Straße bis Überm Wald schaffen.
 
 ## Links
+
+[http://www.spd-auringen.de/meldungen/24964/196022/Situation-an-L3028-und-Haltestelle-Hinkelhaus.html](http://www.spd-auringen.de/meldungen/24964/196022/Situation-an-L3028-und-Haltestelle-Hinkelhaus.html)

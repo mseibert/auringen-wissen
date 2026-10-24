@@ -1,10 +1,17 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://in-wiesbaden-auringen.de',
+	vite: {
+		resolve: {
+			// Kurze Importpfade in MDX-Dateien, z. B. "@/components/EventList.astro".
+			alias: { '@': new URL('./src', import.meta.url).pathname },
+		},
+	},
 	// Verhindert, dass Dev- und Preview-Server alte Seiten aus dem Cache zeigen.
 	server: { headers: { 'Cache-Control': 'no-store' } },
 	integrations: [
@@ -51,7 +58,6 @@ export default defineConfig({
 							items: [
 								{ label: 'Übersicht', link: '/leben-in-auringen/vereine/' },
 								{ label: 'Auringer Vereine', link: '/leben-in-auringen/vereine/auringer-vereine/' },
-								{ label: 'TSV Auringen 1886', link: '/leben-in-auringen/vereine/tsv-auringen/' },
 								{ label: 'Ferienwohnungen', link: '/leben-in-auringen/vereine/ferienwohnungen/' },
 							],
 						},
@@ -106,5 +112,7 @@ export default defineConfig({
 				},
 			],
 		}),
+		// Muss nach Starlight stehen, sonst meckert astro-expressive-code.
+		mdx(),
 	],
 });

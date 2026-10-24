@@ -2,9 +2,13 @@
 title: "Weinstand in Auringen"
 ---
 
+import EventList from '@/components/EventList.astro';
+import eventsData from '@/data/events.json';
+
 # Rahmeninfos zum Auringer Weinstand
 
 | Motto | Jeden Freitag ein anderer Wein von einem anderen Verein. |
+| --- | --- |
 | Ort | Direkt vor der Gemeindeverwaltung |
 | Tag | Freitags |
 | Zeitpunkt | In der Regel ab 18 Uhr abends |
@@ -17,10 +21,12 @@ title: "Weinstand in Auringen"
 
 # Speise- und Weinkarten vergangener Weinstände
 
-Die unten stehenden Speise-Karten stammen von vergangenen Weinständen. Lassen Sie sich inspirieren und kommen Sie vorbei: 
-
-![Plakat A3 GVA Weinstand_2018.jpg](/attachments/Plakat-A3-GVA-Weinstand_2018.jpg) 
+Die unten stehenden Speise-Karten stammen von vergangenen Weinständen. Lassen Sie sich inspirieren und kommen Sie vorbei: 
 
 Bestehende Vereine können diese Preislisten und Ankündigungen nutzen, um eigene Angebote zu gestalten und Ankündigungen zu erstellen.
 
-=
+
+## Kommende Weinstände
+
+<EventList events={eventsData.upcoming} match="weinstand" live />
+

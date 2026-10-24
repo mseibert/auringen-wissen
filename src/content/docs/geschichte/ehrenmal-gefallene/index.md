@@ -48,59 +48,58 @@ An der dem Weg zugewandten Seite ist am Quader in lateinischer Schrift der Schri
 
 Folgend ist die Liste aller Namenstafeln mit den Namen und Geburts- sowie bei den Gefallenen auch das Gefallenenjahr. Die Kürzel für die Lage (z. B. "L.12.1") sind wie folgt zu interpretieren:
 
-L:  links (bzw. rechts bei "R") des Weges zum Quader hin,
+L: links (bzw. rechts bei "R") des Weges zum Quader hin,
 
 12: zwölfte Tafel vom Beginn des Weges an gezählt,
 
-1:  erste (bzw. zweite bei "2") Reihe.
+1: erste (bzw. zweite bei "2") Reihe.
 
-|            |           |             |                |          |
-|------------|-----------|-------------|----------------|----------|
-| Name       | Vorname   | Geburtsjahr | Gefallenenjahr | Position |
-| Baum       | Richard   | 1908        | 1945           | L.1.0    |
-| Bergmann   | Rudolf    | 1912        | 1942           | L.2.0    |
-| Dauber     | Herrman   | 1909        | 1945           | L.3.0    |
-| Deuker     | Emil      | 1915        | 1945           | L.4.0    |
-| Dörr       | Reinhard  | 1906        | 1945           | L.5.0    |
-| Fay        | Emil      | 1922        | 1945           | L.6.0    |
-| Fluck      | Hans      | 1924        | 1942           | L.7.0    |
-| Gibuns     | Josef     | 1908        | vermisst       | L.8.0    |
-| Grüger     | Richard   | 1909        | vermisst       | L.9.0    |
-| Hanke      | Herbert   | 1916        | vermisst       | L.10.0   |
-| Häuser     | Erwin     | 1909        | 1941           | L.11.0   |
-| Lieser     | Heinz     | 1921        | vermisst       | L.12.0   |
-| Lehmann    | Ernst     | 1911        | 1945           | L.12.1   |
-| Kloy       | Kurt      | 1920        | vermisst       | L.13.0   |
-| Lendle     | Hermann   | 1922        | vermisst       | L.13.1   |
-| Kammerer   | Heinrich  | 1904        | 1945           | L.14.0   |
-| Kling      | Ernst     | 1921        | vermisst       | L.14.1   |
-| Kranich    | Karl      | 1914        | 1944           | L.15.0   |
-| Fritz      | Rudi      | 1924        | 1946           | L15.1    |
-| Lieser     | Robert    | 1899        | 1945           | R.1.0    |
-| Lieser     | Rudolf    | 1908        | vermisst       | R.2.0    |
-| Öhler      | Emil      | 1920        | vermisst       | R.3.0    |
-| Öhler      | Rudolf    | 1917        | 1942           | R.4.0    |
-| Pankratz   | Erwin     | 1923        | 1943           | R.5.0    |
-| Pfeifer    | August    | 1908        | vermisst       | R.6.0    |
-| Potsch     | Johann    | 1911        | 1942           | R.7.0    |
-| Rieser     | Gustav    | 1922        | 1944           | R.8.0    |
-| Rieser     | Martin    | 1906        | 1943           | R.9.0    |
-| Rös        | Walter    | 1922        | 1943           | R.10.0   |
-| Ruf        | Moritz    | 1908        | vermisst       | R.11.0   |
-| Sparwasser | Arnold    | 1926        | 1944           | R.12.0   |
-| Schreiner  | Gustav    | 1898        | 1945           | R.12.1   |
-| Ruf        | Wilhelm   | 1901        | vermisst       | R.13.0   |
-| Kloy       | Gerhard   | 1922        | 1944           | R.13.1   |
-| Sparwasser | Heinrich  | 1922        | vermisst       | R.14.0   |
-| Stamm      | Friedrich | 1921        | 1944           | R.14.1   |
-| Zollmann   | Ewald     | 1915        | 1944           | R.15.0   |
-| Lupprich   | Edmund    | 1908        | 1943           | R.15.1   |
+| Name | Vorname | Geburtsjahr | Gefallenenjahr | Position |
+| --- | --- | --- | --- | --- |
+| Baum | Richard | 1908 | 1945 | L.1.0 |
+| Bergmann | Rudolf | 1912 | 1942 | L.2.0 |
+| Dauber | Herrman | 1909 | 1945 | L.3.0 |
+| Deuker | Emil | 1915 | 1945 | L.4.0 |
+| Dörr | Reinhard | 1906 | 1945 | L.5.0 |
+| Fay | Emil | 1922 | 1945 | L.6.0 |
+| Fluck | Hans | 1924 | 1942 | L.7.0 |
+| Gibuns | Josef | 1908 | vermisst | L.8.0 |
+| Grüger | Richard | 1909 | vermisst | L.9.0 |
+| Hanke | Herbert | 1916 | vermisst | L.10.0 |
+| Häuser | Erwin | 1909 | 1941 | L.11.0 |
+| Lieser | Heinz | 1921 | vermisst | L.12.0 |
+| Lehmann | Ernst | 1911 | 1945 | L.12.1 |
+| Kloy | Kurt | 1920 | vermisst | L.13.0 |
+| Lendle | Hermann | 1922 | vermisst | L.13.1 |
+| Kammerer | Heinrich | 1904 | 1945 | L.14.0 |
+| Kling | Ernst | 1921 | vermisst | L.14.1 |
+| Kranich | Karl | 1914 | 1944 | L.15.0 |
+| Fritz | Rudi | 1924 | 1946 | L15.1 |
+| Lieser | Robert | 1899 | 1945 | R.1.0 |
+| Lieser | Rudolf | 1908 | vermisst | R.2.0 |
+| Öhler | Emil | 1920 | vermisst | R.3.0 |
+| Öhler | Rudolf | 1917 | 1942 | R.4.0 |
+| Pankratz | Erwin | 1923 | 1943 | R.5.0 |
+| Pfeifer | August | 1908 | vermisst | R.6.0 |
+| Potsch | Johann | 1911 | 1942 | R.7.0 |
+| Rieser | Gustav | 1922 | 1944 | R.8.0 |
+| Rieser | Martin | 1906 | 1943 | R.9.0 |
+| Rös | Walter | 1922 | 1943 | R.10.0 |
+| Ruf | Moritz | 1908 | vermisst | R.11.0 |
+| Sparwasser | Arnold | 1926 | 1944 | R.12.0 |
+| Schreiner | Gustav | 1898 | 1945 | R.12.1 |
+| Ruf | Wilhelm | 1901 | vermisst | R.13.0 |
+| Kloy | Gerhard | 1922 | 1944 | R.13.1 |
+| Sparwasser | Heinrich | 1922 | vermisst | R.14.0 |
+| Stamm | Friedrich | 1921 | 1944 | R.14.1 |
+| Zollmann | Ewald | 1915 | 1944 | R.15.0 |
+| Lupprich | Edmund | 1908 | 1943 | R.15.1 |
 
-Informationen zum Dienstgrad der Gefalenen und Vermissten findet man hier in \[DEPRO\]: . Dabei handelt es sich um die Personen, die auf den Platten des äußeren Ehrenmals eingraviert wurden. Ein Abgleich mit den Namen des hier beschriebenen Ehrenmals muss ich noch durchführen (FIXME).
+Informationen zum Dienstgrad der Gefalenen und Vermissten findet man hier in \[DEPRO\]: [http://www.denkmalprojekt.org/2018/auringen_stadt-wiesbaden_1870_wk1_wk2_hs.html](http://www.denkmalprojekt.org/2018/auringen_stadt-wiesbaden_1870_wk1_wk2_hs.html). Dabei handelt es sich um die Personen, die auf den Platten des äußeren Ehrenmals eingraviert wurden. Ein Abgleich mit den Namen des hier beschriebenen Ehrenmals muss ich noch durchführen (FIXME).
 
 # Geschichte
 
-Wie auch beim alten Ehrenmal findet man in Auringen selbst kaum Informationen zur Geschichte dieses Ehrenmals, insbesondere auch zum Ablauf seiner Erstellung. In \[WIDE\]: , wo das Ehrenmal als "inneres Ehrenmal" bezeichnet wird, erhält man lediglich eine kurze Beschreibung, aus der man aber immerhin entnehmen kann, dass das Ehrenmal eine denkmalgeschützte Anlage ist ("Das innere Ehrenmal in Form eines Kreuzes bleibt mit den Steinplatten zum Gedenken an die Gefallenen des Zweiten Weltkrieges als denkmalgeschützte Anlage erhalten").
+Wie auch beim alten Ehrenmal findet man in Auringen selbst kaum Informationen zur Geschichte dieses Ehrenmals, insbesondere auch zum Ablauf seiner Erstellung. In \[WIDE\]: [https://www.friedhoefe-wiesbaden.de/friedhof-auringen](https://www.friedhoefe-wiesbaden.de/friedhof-auringen), wo das Ehrenmal als "inneres Ehrenmal" bezeichnet wird, erhält man lediglich eine kurze Beschreibung, aus der man aber immerhin entnehmen kann, dass das Ehrenmal eine denkmalgeschützte Anlage ist ("Das innere Ehrenmal in Form eines Kreuzes bleibt mit den Steinplatten zum Gedenken an die Gefallenen des Zweiten Weltkrieges als denkmalgeschützte Anlage erhalten").
 
 Im Stadtarchiv der Stadt Wiesbaden jedoch befinden sich hierzu zahlreiche Unterlagen, die zumindest eine teilweise Rekonstruktion des Ablaufs seiner Entstehung zulassen \[SAW_AUR_76\]. Dabei ist den Schreiben des Bürgermeisters dessen Namen nie in Klarschrift zu entnehmen; dessen Unterschrift lässt auch keinen eindeutigen Rückschluss darauf zu. Da aber im ältesten hier vorliegenden Dokument (Einladung zur Aussprache über die Errichtung eines Kriegerehrenmales vom 2. Mai 1958, siehe unten) der Bürgermeister mit dem Namen "Schwab" unterzeichnet hat und in der Beschreibung der Einweihung des Ehrenmales im Amtsblatt des Main-Taunus-Kreises (siehe unten) der Name des Bürgermeisters auch mit "Schwab" angegeben ist, so kann man davon ausgehen, dass es sich bei dem Bürgermeister immer um den Herrn Schwab gehandelt hat.
 
@@ -128,7 +127,7 @@ Mai 1961: Der Bürgermeister versendet Schreiben an Angehörige der Gefallenen m
 
 03.06.1961 bis 10.11.1961: Mehrfache Nachbestellung von Namenstafeln für hinzugekommene Namen.
 
-07.08.1961: Brief des Landrates an den Bürgermeister mit der Ablehnung des Antrages und dem Hinweis, dass diesem näher getreten werde könne, wenn "sich aus dem Gemeindemitgliedern und den ortsansässigen Vereinen bildet, welches die Sammlung durchführen will. Das Kuratorium muss aus seiner Mitte ein für die Sammlung, deren Durchführung und Abrechnung  verantwortliches Mitglied bestimmen",
+07.08.1961: Brief des Landrates an den Bürgermeister mit der Ablehnung des Antrages und dem Hinweis, dass diesem näher getreten werde könne, wenn "sich aus dem Gemeindemitgliedern und den ortsansässigen Vereinen bildet, welches die Sammlung durchführen will. Das Kuratorium muss aus seiner Mitte ein für die Sammlung, deren Durchführung und Abrechnung verantwortliches Mitglied bestimmen",
 
 11.08.1961: Schreiben der Handwerkskammer an den Gemeindevorstand Auringen. Darin wird Bezug genommen auf ein Schreiben der Gemeindeverwaltung vom 12.07.1961, in dem diese um Prüfung der Rechnung der Firma "Walter Schreiner, Naurod" in preislicher Hinsicht gebeten hatte. Die Rechnung war im Anhang des Schreibens aus Auringen, ist aber nicht in den Unterlagen des Stadtarchivs vorhanden. Auch fehlt ein Nachweis über die Beauftragung der Firma Walter Schreiner.
 
@@ -160,7 +159,7 @@ Unterlagen über das Kreuz, das einst auf dem Quader stand, liegen nicht vor. Es
 
 # Aktuelles
 
-Noch immer ist das Kreuz abgenommen und der oben beschriebene Zustand aktuell. Da das Kreuz einst die Friedhofsmauer überragte, konnte man die Lage des Ehrenmals bereits von außerhalb des Friedhofs erkennen und es leicht finden. Dies ist nun nicht mehr möglich. Es stellt ich die Frage nach einer Stellungnahme der zuständigen Denkmalschutzbehörde (Die Anlage ist nach Angabe in \[WIDE\]:  denkmalgeschützt, siehe oben "Geschichte"). Dass das Ehrenmal immer noch von Besuchern frequentiert wird, erkennt man an den immer wieder erneuerten Dekorationen (Blumen, Kerzen etc.). Dies zeigen auch die folgenden beiden Bilder, die nach dem Volkstrauertag 2019 aufgenommen wurden. Auf dem rechten Bild sieht man im Hintergrund den Quader. An die Stelle des fehlenden Kreuzes haben Angehörige ein weißes Grablicht gestellt. Im Hintergrund links sieht man den Obelisken und den Adler des Ehrenmals von 1896.
+Noch immer ist das Kreuz abgenommen und der oben beschriebene Zustand aktuell. Da das Kreuz einst die Friedhofsmauer überragte, konnte man die Lage des Ehrenmals bereits von außerhalb des Friedhofs erkennen und es leicht finden. Dies ist nun nicht mehr möglich. Es stellt ich die Frage nach einer Stellungnahme der zuständigen Denkmalschutzbehörde (Die Anlage ist nach Angabe in \[WIDE\]: [https://www.friedhoefe-wiesbaden.de/friedhof-auringen](https://www.friedhoefe-wiesbaden.de/friedhof-auringen) denkmalgeschützt, siehe oben "Geschichte"). Dass das Ehrenmal immer noch von Besuchern frequentiert wird, erkennt man an den immer wieder erneuerten Dekorationen (Blumen, Kerzen etc.). Dies zeigen auch die folgenden beiden Bilder, die nach dem Volkstrauertag 2019 aufgenommen wurden. Auf dem rechten Bild sieht man im Hintergrund den Quader. An die Stelle des fehlenden Kreuzes haben Angehörige ein weißes Grablicht gestellt. Im Hintergrund links sieht man den Obelisken und den Adler des Ehrenmals von 1896.
 
 Neuer Stand: Auf dem Quader wurde ein Metallrohr mit quadratischem Querschnitt dort angebracht, wo sich einst das Kreuz befand (sieh Bild). Vielleicht wird man das Kreuz über diesem Rohr installieren. Durch die Höhe des Kreuzes wäre dann eine bessere Stabilität gewährleistet.
 
@@ -174,8 +173,8 @@ Neuer Stand: Auf dem Quader wurde ein Metallrohr mit quadratischem Querschnitt d
 
 \[SAW_AUR_76\]: Stadtarchiv Wiesbaden, Signatur Best. AUR Nr. 76, „Errichtung eines Ehrenmals für die Gefallenen und Vermißten des Zweiten Weltkriegs“ 1958–1962
 
-\[WIDE\]: 
+\[WIDE\]: [https://www.friedhoefe-wiesbaden.de/friedhof-auringen](https://www.friedhoefe-wiesbaden.de/friedhof-auringen)
 
-\[DEPRO\]: 
+\[DEPRO\]: [http://www.denkmalprojekt.org/2018/auringen_stadt-wiesbaden_1870_wk1_wk2_hs.html](http://www.denkmalprojekt.org/2018/auringen_stadt-wiesbaden_1870_wk1_wk2_hs.html)
 
 Bildnachweis: Sofern nicht anders vermerkt, stammen die Bilder vom Autor.

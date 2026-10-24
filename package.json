@@ -11,12 +11,15 @@
 		"preview": "astro preview",
 		"events": "node scripts/fetch-events.mjs",
 		"astro": "astro",
-		"postbuild": "node scripts/check-spacing.mjs",
-		"check": "node scripts/check-spacing.mjs"
+		"postbuild": "node scripts/check-spacing.mjs && node scripts/check-links.mjs",
+		"check": "node scripts/check-spacing.mjs && node scripts/check-links.mjs"
 	},
 	"dependencies": {
 		"@astrojs/starlight": "^0.42.6",
 		"astro": "^7.2.10",
 		"sharp": "^0.35.3"
+	},
+	"devDependencies": {
+		"@astrojs/mdx": "^8.1.1"
 	}
 }

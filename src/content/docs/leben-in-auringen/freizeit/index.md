@@ -3,12 +3,12 @@ title: "Freizeit in Auringen"
 ---
 
 - Spielplätze
-  - Am Lindenborn
-  - In den langen Ruten
-  - ...
+ - Am Lindenborn
+ - In den langen Ruten
+ - ...
 - Restaurants
-  - Hockenberger Mühle
-  - Hinkelhaus
+ - Hockenberger Mühle
+ - Hinkelhaus
 - Wanderwege
 - ...
 
@@ -23,6 +23,8 @@ Auf der Karte:
 [https://www.google.de/maps/place/50%C2%B008'00.7%22N+8%C2%B020'38.1%22E/@50.1338917,8.3428075,1182m/data=!3m1!1e3!4m5!3m4!1s0x0:0x0!8m2!3d50.1335333!4d8.3439167](https://www.google.de/maps/place/50%C2%B008)
 
 Oder mit dem Suchen des Geocache verbinden:
+
+[https://www.geocaching.com/geocache/GC25Q5G_am-moosbewachsenen-kristallfels-chrystal-rock](https://www.geocaching.com/geocache/GC25Q5G_am-moosbewachsenen-kristallfels-chrystal-rock)
 
 ## Ein Spaziergang durch Auringen
 

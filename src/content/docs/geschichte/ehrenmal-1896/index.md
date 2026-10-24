@@ -20,7 +20,7 @@ Dasn Ehrenmal befindet sich in der kleinen Grünanlage vor dem südlichen Eingan
 
 Der Aufbau des etwa 6m hohen Ehrenmals folgt dem damals üblichen Vorbild: Postament, Obelisk, Adler. Postament und Obelsik sind bis auf die angebrachten Reliefs aus gelbem Sandstein gefertigt.
 
-Auf ein quadratisches Fundament aus Beton folgt das in drei unterschiedlich hohen Stufen zurückspringende Fußgesims als unterster Teil des Postaments. Er trägt den quaderförmigen Postamentschaft, der wiederum von dem nun nach außen springenden Kranzgesims abgeschlossen wird. Dessen oberster Teil bildet ein einfacher, um alle vier Seiten laufender, nur leicht hervortretender Fries. Er besteht aus einem einfachen Band, das sich in den Seitenmitten in Form eines Halbkreises nach oben wölbt. An den Ecken wiederholt sich diese Wöbung, reicht jedoch nur noch bis zur Ausbildung eines Viertelkreises, der im Scheitel den Viertelkreis-Bogen des benachbarten Frieses  berührt. Dadurch entsteht jeweils an den Ecken ein kleiner Akroter. Darüber erhebt sich der Obelisk, über den ein nach aus Sicht des Denkmals links blickender Bronzeadler thront, der seine Schwingen weit ausbreitet.
+Auf ein quadratisches Fundament aus Beton folgt das in drei unterschiedlich hohen Stufen zurückspringende Fußgesims als unterster Teil des Postaments. Er trägt den quaderförmigen Postamentschaft, der wiederum von dem nun nach außen springenden Kranzgesims abgeschlossen wird. Dessen oberster Teil bildet ein einfacher, um alle vier Seiten laufender, nur leicht hervortretender Fries. Er besteht aus einem einfachen Band, das sich in den Seitenmitten in Form eines Halbkreises nach oben wölbt. An den Ecken wiederholt sich diese Wöbung, reicht jedoch nur noch bis zur Ausbildung eines Viertelkreises, der im Scheitel den Viertelkreis-Bogen des benachbarten Frieses berührt. Dadurch entsteht jeweils an den Ecken ein kleiner Akroter. Darüber erhebt sich der Obelisk, über den ein nach aus Sicht des Denkmals links blickender Bronzeadler thront, der seine Schwingen weit ausbreitet.
 
 ![AdlerTotal.JPG](/attachments/AdlerTotal.jpg)
 
@@ -36,35 +36,35 @@ An dem glorreichen Feldzug 1870/71
 
 haben Theil genommen
 
-Arheilger Philipp    †
+Arheilger Philipp †
 
-Braun   Karl            †       24.03.1871 zu Mainz
+Braun Karl † 24.03.1871 zu Mainz
 
-Fritz   Theodor         †
+Fritz Theodor †
 
-Guckes  Louis           †
+Guckes Louis †
 
-Häuser  Philipp         †
+Häuser Philipp †
 
-Lieser  Christian Peter
+Lieser Christian Peter
 
-Lieser  Philipp         †
+Lieser Philipp †
 
-Rieser  Adolf           †
+Rieser Adolf †
 
-Rieser  Otto            †
+Rieser Otto †
 
-Rös     Philipp         †       28.03.1882
+Rös Philipp † 28.03.1882
 
-Ruf     August          †       06.02.1891
+Ruf August † 06.02.1891
 
-Ruf     Georg           †
+Ruf Georg †
 
-Ruf     Joh. Georg Dav. †       08.10.1870 zu Meaux
+Ruf Joh. Georg Dav. † 08.10.1870 zu Meaux
 
-Ruf     Louis           †       01.01.1873
+Ruf Louis † 01.01.1873
 
-Weyershäuser      Moritz
+Weyershäuser Moritz
 
 Hinterseite des Postaments:
 
@@ -130,31 +130,31 @@ gefallenen Kameraden gewidmet
 
 Krieger-Militär-Verein Auringen
 
-Emil Ruf     † 28.12.1914
+Emil Ruf † 28.12.1914
 
 Karl Seelgen † 13.02.1915
 
-Hans Lauth   † 25.03.1915
+Hans Lauth † 25.03.1915
 
 Hermann Lieser † 15.05.1915
 
-Otto Lieser  †  05.06.1915
+Otto Lieser † 05.06.1915
 
 Wilhelm Schmidt †21.07.1915
 
-Hermann Ruf   † 21.08.1915
+Hermann Ruf † 21.08.1915
 
 Christian Schreiner † 30.09.1915
 
-Karl Fritz    † 16.04.1916
+Karl Fritz † 16.04.1916
 
 Christan Fluck † 28.04.1916
 
 Adolf Rieser † 04.08.1916
 
-Adolf Zahn   † 13.08.1916
+Adolf Zahn † 13.08.1916
 
-Ludwig Karl  † 03.09.1916
+Ludwig Karl † 03.09.1916
 
 Emil Schmitt † 21.09.1916
 
@@ -162,13 +162,13 @@ August Schuhmacher † 12.10.1916
 
 Heinrich Weyershäuser † 26.11.1916
 
-Philipp Seelgen  † 25.03.1918
+Philipp Seelgen † 25.03.1918
 
-Moritz Lendle  † 13.07.1918
+Moritz Lendle † 13.07.1918
 
 Ferdinand Lieser † 07.10.1918
 
-Adolf Braun     vermisst
+Adolf Braun vermisst
 
 Platte hinten:
 
@@ -276,7 +276,7 @@ Robert Lieser geb. 1899 umgek. 1945
 
 Eduard Baum geb. 1878 umgek. 1945
 
-In \[DEPRO\] findet man zu den Gefallenen und Vermissten des zweiten Weltkriegs weitergehende Informationen (falls vorhanden), wie Dienstgrad und Todesort sowie Begräbnisstelle. Ältere  Aufnahmen aus der Zeit vor der Restaurierung findet man in \[DEM1\] bis \[DEM4\]. In \[DEM\] findet man die Inschriften auf den Seiten des Ehrenmals.
+In \[DEPRO\] findet man zu den Gefallenen und Vermissten des zweiten Weltkriegs weitergehende Informationen (falls vorhanden), wie Dienstgrad und Todesort sowie Begräbnisstelle. Ältere Aufnahmen aus der Zeit vor der Restaurierung findet man in \[DEM1\] bis \[DEM4\]. In \[DEM\] findet man die Inschriften auf den Seiten des Ehrenmals.
 
 # Geschichte
 
@@ -336,7 +336,7 @@ Das folgende Bild zeigt zur Einweihung des Denkmals anwesende Ehrenjungfrauen un
 
 Der Standort lag zunächst an der Einmündung der Straße „Am Weinberg“ in die Kaiserstraße (heute Nauroder Straße). Nach dem Kriege wurde es verlegt an die Stelle, an der heute die Georg-Rieser-Straße in die Nauroder Straße einmündet, etwas weiter südlich des heutigen Standortes. Im Rahmen der Erschließung des Neubaugebietes nördlich des Ortskernes musste es der Georg-Rieser-Straße weichen. Es wurde demontiert und vor dem Friedhof abgelegt und danach am heutigen Standort wieder errichtet. (Siehe hierzu \[DEM1\]. Aus diesem Foto geht auch hervor, dass sich die Gedenktafel für die Gefallenen und Vermissten des ersten Weltkriegs bereits vor dem Beschluss des Auringer Ortsbeirates an der Vorderseite des Denkmals angebracht war.).
 
-Im Jahr 2015 beschloss der Auringer Ortsbeirat eine Sanierung des Denkmals und seine Erweiterung um die Namestafeln der Gefallenen und vermissten des zweiten  Weltkriegs. Letztere befanden sich bis dahin in der Trauerhalle des Auringer Friedhofs. Im Rahmen dieses Beschlusses wurde auch die Grünanlage, auf dem das Denkmal steht neu angelegt, Sitzbänke um das Denkmal installiert und eine Hinweistafel angebracht \[WK\].
+Im Jahr 2015 beschloss der Auringer Ortsbeirat eine Sanierung des Denkmals und seine Erweiterung um die Namestafeln der Gefallenen und vermissten des zweiten Weltkriegs. Letztere befanden sich bis dahin in der Trauerhalle des Auringer Friedhofs. Im Rahmen dieses Beschlusses wurde auch die Grünanlage, auf dem das Denkmal steht neu angelegt, Sitzbänke um das Denkmal installiert und eine Hinweistafel angebracht \[WK\].
 
 Hinweistafel am Ehrenmal:
 
@@ -352,7 +352,7 @@ Anlässlich des Volkstrauertages wird jedes Jahr ein Kranz der Landeshautpstadt 
 
 # Aktuelles:
 
-Das fehlende Relief auf der linken Seite des Ehrenmals (siehe oben) kam wahrscheinlich abhanden, als das Ehrenmal wegen des Baus der Georg-Rieser-Straße demontiert und vor dem Friedhof abgelegt wurde. Es liegt die Vermutung nahe, dass es sich bei dem Relief um das Portrait Wilhelms II. handelt, der zum Zeitpunkt der Erstellung  bereits fast 8 Jahre König von Preußen und Deutscher Kaiser war. Allerdings gibt es hierfür keine Unterlagen. Über eine Wiederherstellung dieses Reliefs gab es bereits intensive Diskussionen im Ortsbeirat und es wurde beschlossen, mit einer Entscheidung zu warten, bis zur Klärung, wen das Relief darstellt; siehe \[WK\].
+Das fehlende Relief auf der linken Seite des Ehrenmals (siehe oben) kam wahrscheinlich abhanden, als das Ehrenmal wegen des Baus der Georg-Rieser-Straße demontiert und vor dem Friedhof abgelegt wurde. Es liegt die Vermutung nahe, dass es sich bei dem Relief um das Portrait Wilhelms II. handelt, der zum Zeitpunkt der Erstellung bereits fast 8 Jahre König von Preußen und Deutscher Kaiser war. Allerdings gibt es hierfür keine Unterlagen. Über eine Wiederherstellung dieses Reliefs gab es bereits intensive Diskussionen im Ortsbeirat und es wurde beschlossen, mit einer Entscheidung zu warten, bis zur Klärung, wen das Relief darstellt; siehe \[WK\].
 
 Für Hinweise, die zur Klärung dieses Sachverhalts führen, ist der Verfasser dankbar. Gerne kann dazu die Kommentarfunktion am Ende dieser Seite genutzt werden.
 
@@ -369,15 +369,23 @@ Schon im Hinblick auf die eventuell hierdurch beeinträchtigte Verkehrssicherhei
 # Quellen:
 
 \[RUF94\]: Stadtarchiv Wiesbaden: August Ruf, Chronik Auringen, Band 1, Seite 94;
+
 \[RUF87\]: Stadtarchiv Wiesbaden: August Ruf, Chronik Auringen, Band 1, Seite 87;
+
 \[HHSTAW\]: Hessisches Hauptstaatsarchiv Wiesbaden, Abt. 422, Nr. 657 "Errichtung von Kriegerdenkmälern, 1896 – 1914"
 
-\[DEPRO\]: 
-\[DEM\]: 
-\[DEM1\]: 
-\[DEM2\]: 
-\[DEM3\]: 
-\[DEM4\]: 
-\[WK\]: 
+\[DEPRO\]: [http://www.denkmalprojekt.org/2018/auringen_stadt-wiesbaden_1870_wk1_wk2_hs.html](http://www.denkmalprojekt.org/2018/auringen_stadt-wiesbaden_1870_wk1_wk2_hs.html)
+
+\[DEM\]: [http://www.deutsche-ehrenmale.de/ehren/hessen/bilder/hessen/D-H-WI-Auringen_1_2010.JPG](http://www.deutsche-ehrenmale.de/ehren/hessen/bilder/hessen/D-H-WI-Auringen_1_2010.JPG)
+
+\[DEM1\]: [http://www.deutsche-ehrenmale.de/ehren/hessen/bilder/hessen/D-H-WI-Auringen_1_2010.JPG](http://www.deutsche-ehrenmale.de/ehren/hessen/bilder/hessen/D-H-WI-Auringen_1_2010.JPG)
+
+\[DEM2\]: [http://www.deutsche-ehrenmale.de/ehren/hessen/bilder/hessen/D-H-WI-Auringen_2_2010.JPG](http://www.deutsche-ehrenmale.de/ehren/hessen/bilder/hessen/D-H-WI-Auringen_2_2010.JPG)
+
+\[DEM3\]: [http://www.deutsche-ehrenmale.de/ehren/hessen/bilder/hessen/D-H-WI-Auringen_3_2010.JPG](http://www.deutsche-ehrenmale.de/ehren/hessen/bilder/hessen/D-H-WI-Auringen_3_2010.JPG)
+
+\[DEM4\]: [http://www.deutsche-ehrenmale.de/ehren/hessen/bilder/hessen/D-H-WI-Auringen_4_2010.JPG](http://www.deutsche-ehrenmale.de/ehren/hessen/bilder/hessen/D-H-WI-Auringen_4_2010.JPG)
+
+\[WK\]: [https://www.wiesbadener-kurier.de/lokales/wiesbaden/stadtteile-wiesbaden/auringen/diskussion-um-ehrenmal-am-auringer-friedhof_17849758](https://www.wiesbadener-kurier.de/lokales/wiesbaden/stadtteile-wiesbaden/auringen/diskussion-um-ehrenmal-am-auringer-friedhof_17849758)
 
 Bildnachweis: Sofern nicht anders vermerkt, stammen die Bilder vom Autor.

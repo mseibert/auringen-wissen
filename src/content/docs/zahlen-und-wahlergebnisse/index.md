@@ -13,7 +13,7 @@ Quelle: [Stadt Wiesbaden](https://www.wiesbaden.de/leben-in-wiesbaden/stadtportr
 
 ## Wahlergebnisse Wiesbaden
 
-Für Interessierte stellt die Stadt auf der Seite  alle relevanten Wahlergebnisse der letzten Jahre nach verschiedenen Kriterien zur Verfügung. Hier kann man sich beipielsweise ansehen wie die letzten Ortsbeiratswahlen in Auringen abgestimmt wurden aber auch die Stadtverordnetenwahlen, etc.
+Für Interessierte stellt die Stadt auf der Seite [https://wahlergebnisse.wiesbaden.de/](https://wahlergebnisse.wiesbaden.de/) alle relevanten Wahlergebnisse der letzten Jahre nach verschiedenen Kriterien zur Verfügung. Hier kann man sich beipielsweise ansehen wie die letzten Ortsbeiratswahlen in Auringen abgestimmt wurden aber auch die Stadtverordnetenwahlen, etc.
 
 # Bundestagswahl 2017
 
@@ -487,6 +487,7 @@ innen</p></th>
 Auf dieser Seite sollen Grundstücke gelistet werden, die Baulücken darstellen:
 
 | Grundstück | Lage auf Google Maps |
+| --- | --- |
 | Grundstück Am Lindenborn | [Direktlink](https://goo.gl/maps/1kRGsPfHSpP2) |
 | Georg-Rieser-Straße 15, 65207 Wiesbaden | [Direktlink](https://goo.gl/maps/sZGy3ceqqRz) |
 | An der Leimenkaut | [Direktlink](https://goo.gl/maps/9bvtDQrYi3S2) |
