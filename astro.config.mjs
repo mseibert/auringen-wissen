@@ -5,9 +5,11 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://in-wiesbaden-auringen.de',
+	// Verhindert, dass Dev- und Preview-Server alte Seiten aus dem Cache zeigen.
+	server: { headers: { 'Cache-Control': 'no-store' } },
 	integrations: [
 		starlight({
-			title: 'Auringen Wissen',
+			title: 'Wissen über Wiesbaden-Auringen',
 			description:
 				'Wissen über Wiesbaden-Auringen: Vereine, Geschichte, Freizeit, Politik und Orte.',
 			logo: { src: './src/assets/auringen-logo.jpg', alt: 'Auringen' },

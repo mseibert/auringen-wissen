@@ -1,4 +1,4 @@
-# Auringen Wissen
+# Wissen über Wiesbaden-Auringen
 
 Wissen über Wiesbaden-Auringen: Vereine, Geschichte, Freizeit, Politik und Orte.
 

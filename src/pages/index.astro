@@ -41,12 +41,14 @@ const areas = [
 
 <StarlightPage
 	frontmatter={{
-		title: 'Auringen Wissen',
+		// Starlight haengt den Site-Titel immer an; ohne eigenen Titel stuende
+		// er doppelt im <title>. Der sichtbare Titel steht im Hero.
+		title: 'Startseite',
 		description:
 			'Was in Wiesbaden-Auringen wichtig ist: Termine, Vereine, Geschichte, Freizeit und Politik.',
 		template: 'splash',
 		hero: {
-			title: 'Auringen Wissen',
+			title: 'Wissen über Wiesbaden-Auringen',
 			tagline: 'Was in Wiesbaden-Auringen wichtig ist — gesammelt von Auringern für Auringer.',
 			actions: [
 				{ text: 'Termine ansehen', link: '/termine/', icon: 'right-arrow', variant: 'primary' },
