@@ -10,7 +10,9 @@
 		"prebuild": "node scripts/fetch-events.mjs",
 		"preview": "astro preview",
 		"events": "node scripts/fetch-events.mjs",
-		"astro": "astro"
+		"astro": "astro",
+		"postbuild": "node scripts/check-spacing.mjs",
+		"check": "node scripts/check-spacing.mjs"
 	},
 	"dependencies": {
 		"@astrojs/starlight": "^0.42.6",
