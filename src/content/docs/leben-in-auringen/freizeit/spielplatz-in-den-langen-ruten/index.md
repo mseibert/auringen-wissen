@@ -127,8 +127,6 @@ Wir danken den ersten Sponsoren und Unterstützern:
 
 4.  Sascha Back
 
-Kurzlink zu dieser Seite:
-
 ## Seiten in diesem Bereich
 
 - [Weinstand 2021 zugunsten des Spielplatzes](weinstand-2021/)

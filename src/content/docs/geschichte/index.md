@@ -2,8 +2,6 @@
 title: "Geschichte von Auringen"
 ---
 
-## Seiten unterhalb dieser Seite
-
 ## Früheres Logo des Ortes
 
 ![Auringen macht Spaß.jpg](/attachments/Auringen-macht-Spaß.jpg)

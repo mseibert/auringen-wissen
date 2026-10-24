@@ -44,5 +44,3 @@ Die Suppen kommen von der [Hockenberger Mühle](https://www.hockenberger-muehle.
 | Beck's Bier alkoholfrei | Flasche | 2,50 Euro |
 
 Die Weine kommen von den [Winzern von Erbach](https://winzer-von-erbach.de/index.php?id=24).
-
-Kurzlink zu dieser Seite:
