@@ -1,0 +1,69 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import EventList from '../components/EventList.astro';
+import eventsData from '../data/events.json';
+
+const upcoming = eventsData.upcoming;
+const fetched = new Intl.DateTimeFormat('de-DE', {
+	dateStyle: 'medium',
+	timeStyle: 'short',
+	timeZone: 'Europe/Berlin',
+}).format(new Date(eventsData.fetchedAt));
+---
+
+<StarlightPage
+	frontmatter={{
+		title: 'Termine in Auringen',
+		description:
+			'Veranstaltungen in Wiesbaden-Auringen: Feste, Sitzungen, Gottesdienste und Vereinstermine.',
+	}}
+>
+	<p>
+		Alle Termine kommen live aus dem <a href="https://www.auringer-events.de" rel="noopener"
+			>Auringer Events-Kalender</a
+		>. Dort trägt der Ortsverein die Termine ein, dort kann man sie auch abonnieren oder selbst
+		einreichen.
+	</p>
+
+	<EventList events={upcoming} live />
+
+	<h2 id="abonnieren">Termine abonnieren</h2>
+	<p>
+		Der Kalender lässt sich in Apple Kalender, Google Kalender, Thunderbird und jedem anderen
+		Programm abonnieren, das iCalendar versteht. Neue und geänderte Termine erscheinen dann
+		automatisch:
+	</p>
+	<ul>
+		<li>
+			<a href="https://www.auringer-events.de/calendar.ics" rel="noopener"
+				>Alle Termine als ICS-Feed</a
+			>
+		</li>
+		<li>
+			<a href="https://www.auringer-events.de/termine" rel="noopener"
+				>Terminseite mit Filtern nach Verein und Kategorie</a
+			>
+		</li>
+	</ul>
+
+	<h2 id="eintragen">Einen Termin eintragen</h2>
+	<p>
+		Termine für Auringer Vereine und Organisationen werden im
+		<a href="https://www.auringer-events.de" rel="noopener">Auringer Events-Kalender</a>
+		gepflegt, nicht mehr hier im Wiki. Dort gibt es einen Login für Vereinsvertreter und ein
+		Formular, über das auch Auringer Bürger Termine vorschlagen können.
+	</p>
+
+	<p class="stamp">
+		Zuletzt vom Kalender geholt: {fetched} Uhr. Die Anzeige aktualisiert sich beim Laden der
+		Seite selbst.
+	</p>
+</StarlightPage>
+
+<style>
+	.stamp {
+		margin-top: 2.5rem;
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-4);
+	}
+</style>

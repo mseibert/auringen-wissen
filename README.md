@@ -60,3 +60,24 @@ pnpm build    # dist/
 - „Auringer Vereine" nennt Kontaktdaten von Vereinsfunktionären, wie sie im
   Wiki standen. Adressen sind entfernt, Telefon und E-Mail nicht.
 - Die Seite „TSV Auringen" besteht nur aus dem Verweis auf eine Telegram-Gruppe.
+
+## Termine
+
+Die Termine kommen live aus dem
+[Auringer Events-Kalender](https://www.auringer-events.de), nicht aus dem Wiki.
+
+Zwei Wege, ein Ergebnis:
+
+1. **Build-Zeit** — `scripts/fetch-events.mjs` holt den öffentlichen ICS-Feed
+   (`/calendar.ics`), parst ihn und schreibt `src/data/events.json`. Das läuft
+   als `prebuild`, damit die Seiten ohne JavaScript und für Suchmaschinen
+   vollständig sind.
+2. **Laufzeit** — im Browser holt `EventList.astro` die Live-Liste von
+   `/api/public/events` und ersetzt die Anzeige. Der ICS-Feed taugt dafür
+   nicht: kein `Access-Control-Allow-Origin`, also von einer anderen Domain
+   nicht lesbar. Den JSON-Endpunkt liefert die Events-App
+   (`auringer-events`, PR #93).
+
+Fällt der Endpunkt aus, bleibt der Build-Zeit-Stand stehen.
+
+`src/data/events.json` ist gitignored — es entsteht bei jedem Build neu.

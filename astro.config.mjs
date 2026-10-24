@@ -20,6 +20,7 @@ export default defineConfig({
 			},
 			sidebar: [
 				{ label: 'Start', link: '/' },
+				{ label: 'Termine', link: '/termine/' },
 				{
 					label: 'Leben in Auringen',
 					items: [

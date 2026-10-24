@@ -1,0 +1,264 @@
+---
+/**
+ * Terminliste.
+ *
+ * Zwei Quellen, eine Anzeige:
+ * 1. Beim Build werden die Termine über den ICS-Feed geholt
+ *    (scripts/fetch-events.mjs) und serverseitig gerendert — funktioniert
+ *    ohne JavaScript und ist für Suchmaschinen sichtbar.
+ * 2. Im Browser holt ein kleiner Script die Live-Liste von
+ *    /api/public/events und ersetzt die Anzeige, wenn sich etwas geändert
+ *    hat. Der ICS-Feed taugt dafür nicht, er hat keinen CORS-Header.
+ */
+interface EventItem {
+	uid: string;
+	title: string;
+	start: string;
+	end: string | null;
+	hasTime: boolean;
+	location: string;
+	description: string;
+	organizer: string;
+	url: string;
+	cancelled: boolean;
+}
+
+interface Props {
+	events: EventItem[];
+	limit?: number;
+	live?: boolean;
+	empty?: string;
+}
+
+const { events, limit, live = false, empty = 'Derzeit sind keine Termine eingetragen.' } = Astro.props;
+const shown = limit ? events.slice(0, limit) : events;
+const api =
+	import.meta.env.PUBLIC_EVENTS_API ?? 'https://www.auringer-events.de/api/public/events';
+
+// ICS-Zeitstempel sind Europe/Berlin-Wandzeit ohne Zeitzone. Sie werden als
+// UTC geparst und als UTC formatiert, damit sie unabhängig von der Zeitzone
+// des Build-Rechners unverändert angezeigt werden.
+const tz = { timeZone: 'UTC' } as const;
+const dayFmt = new Intl.DateTimeFormat('de-DE', { weekday: 'short', ...tz });
+const dateFmt = new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', ...tz });
+const timeFmt = new Intl.DateTimeFormat('de-DE', { hour: '2-digit', minute: '2-digit', ...tz });
+
+
+/** "12:00–16:00 Uhr", "6.–8. November" oder "18:00 Uhr" — je nach Spannweite. */
+function whenLabel(start: Date, end: Date | null, hasTime: boolean) {
+	const time = (d: Date) => timeFmt.format(d);
+	if (!hasTime) return '';
+	if (!end) return `${time(start)} Uhr`;
+	const sameDay = end.toDateString() === start.toDateString();
+	if (sameDay) return time(start) === time(end) ? `${time(start)} Uhr` : `${time(start)}–${time(end)} Uhr`;
+	const month = (d: Date) => dateFmt.format(d).split(' ').slice(-1)[0];
+	return start.getMonth() === end.getMonth()
+		? `${start.getDate()}.–${end.getDate()}. ${month(end)}`
+		: `${start.getDate()}. ${month(start)} – ${end.getDate()}. ${month(end)}`;
+}
+
+function parse(iso: string) {
+	const [date, time = '00:00:00'] = iso.split('T');
+	const [y, m, d] = date.split('-').map(Number);
+	const [hh, mm, ss = 0] = time.split(':').map(Number);
+	return new Date(Date.UTC(y, m - 1, d, hh, mm, ss));
+}
+---
+
+<div class="event-list" data-live-events={live ? api : undefined} data-limit={limit ?? ''}>
+	{
+		shown.length === 0 ? (
+			<p class="empty">{empty}</p>
+		) : (
+			<ul class="events">
+				{shown.map((event) => {
+					const start = parse(event.start);
+					const end = event.end ? parse(event.end) : null;
+					const sameDay = end ? end.toDateString() === start.toDateString() : true;
+					return (
+						<li class:list={['event', { cancelled: event.cancelled }]}>
+							<div class="when">
+								<span class="weekday">{dayFmt.format(start).replace('.', '')}</span>
+								<span class="day">{start.getDate()}</span>
+								<span class="month">{dateFmt.format(start).split(' ').slice(-1)}</span>
+							</div>
+							<div class="what">
+								<h3>
+									{event.url ? (
+										<a href={event.url} rel="noopener">
+											{event.title}
+										</a>
+									) : (
+										event.title
+									)}
+									{event.cancelled && <span class="badge">abgesagt</span>}
+								</h3>
+								<p class="meta">
+									{whenLabel(start, end, event.hasTime)}
+									{whenLabel(start, end, event.hasTime) && event.location && ' · '}
+									{event.location}
+									{event.organizer && ` · ${event.organizer}`}
+								</p>
+								{event.description && <p class="desc">{event.description}</p>}
+							</div>
+						</li>
+					);
+				})}
+			</ul>
+		)
+	}
+</div>
+
+{
+	live && (
+		<script>
+			const root = document.querySelector('[data-live-events]');
+			const endpoint = root?.dataset.liveEvents;
+			const limit = Number(root?.dataset.limit) || 0;
+
+			if (root && endpoint) {
+				const tz = { timeZone: 'Europe/Berlin' };
+				const dayFmt = new Intl.DateTimeFormat('de-DE', { weekday: 'short', ...tz });
+				const dateFmt = new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', ...tz });
+				const timeFmt = new Intl.DateTimeFormat('de-DE', { hour: '2-digit', minute: '2-digit', ...tz });
+				const whenLabel = (start, end, hasTime) => {
+					if (!hasTime) return '';
+					if (!end) return `${timeFmt.format(start)} Uhr`;
+					const sameDay = end.toDateString() === start.toDateString();
+					if (sameDay)
+						return timeFmt.format(start) === timeFmt.format(end)
+							? `${timeFmt.format(start)} Uhr`
+							: `${timeFmt.format(start)}–${timeFmt.format(end)} Uhr`;
+					const month = (d) => dateFmt.format(d).split(' ').slice(-1)[0];
+					return start.getMonth() === end.getMonth()
+						? `${start.getDate()}.–${end.getDate()}. ${month(end)}`
+						: `${start.getDate()}. ${month(start)} – ${end.getDate()}. ${month(end)}`;
+				};
+				const esc = (s) =>
+					String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+
+				const render = (events) => {
+					if (!events.length) return;
+					const list = document.createElement('ul');
+					list.className = 'events';
+					for (const event of events) {
+						const start = new Date(event.startsAt);
+						const end = event.endsAt ? new Date(event.endsAt) : null;
+						const sameDay = end ? end.toDateString() === start.toDateString() : true;
+						const li = document.createElement('li');
+						li.className = 'event' + (event.cancelled ? ' cancelled' : '');
+						li.innerHTML = `
+							<div class="when">
+								<span class="weekday">${esc(dayFmt.format(start).replace('.', ''))}</span>
+								<span class="day">${start.getDate()}</span>
+								<span class="month">${esc(dateFmt.format(start).split(' ').slice(-1))}</span>
+							</div>
+							<div class="what">
+								<h3>${event.url ? `<a href="${esc(event.url)}" rel="noopener">${esc(event.title)}</a>` : esc(event.title)}${
+									event.cancelled ? '<span class="badge">abgesagt</span>' : ''
+								}</h3>
+								<p class="meta">${
+									whenLabel(start, end, event.hasTime) +
+									(whenLabel(start, end, event.hasTime) && event.location ? ' · ' : '')
+								}${esc(event.location)}${event.verein ? ' · ' + esc(event.verein) : ''}</p>
+								${event.description ? `<p class="desc">${esc(event.description)}</p>` : ''}
+							</div>`;
+						list.append(li);
+					}
+					root.replaceChildren(list);
+				};
+
+				fetch(endpoint, { headers: { accept: 'application/json' } })
+					.then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+					.then((data) => render(limit ? data.events.slice(0, limit) : data.events))
+					.catch(() => {
+						/* Build-Zeit-Stand bleibt stehen */
+					});
+			}
+		</script>
+	)
+}
+
+<style>
+	.events {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.9rem;
+	}
+	.event {
+		display: flex;
+		gap: 1.1rem;
+		padding: 1rem 1.2rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.6rem;
+		background: var(--sl-color-bg-nav);
+	}
+	.event.cancelled {
+		opacity: 0.65;
+	}
+	.when {
+		flex: 0 0 3.4rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		line-height: 1.1;
+		border-right: 1px solid var(--sl-color-gray-5);
+		padding-right: 0.9rem;
+	}
+	.weekday {
+		font-size: var(--sl-text-xs);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--sl-color-gray-3);
+	}
+	.day {
+		font-size: 1.7rem;
+		font-weight: 600;
+		color: var(--sl-color-white);
+	}
+	.month {
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+	}
+	.what {
+		min-width: 0;
+	}
+	.what h3 {
+		margin: 0;
+		font-size: var(--sl-text-lg);
+		line-height: 1.3;
+	}
+	.what h3 a {
+		color: var(--sl-color-white);
+		text-decoration: none;
+	}
+	.what h3 a:hover {
+		text-decoration: underline;
+	}
+	.badge {
+		margin-left: 0.5rem;
+		font-size: var(--sl-text-xs);
+		font-weight: 500;
+		padding: 0.1rem 0.45rem;
+		border-radius: 0.3rem;
+		background: var(--sl-color-orange-low);
+		color: var(--sl-color-orange-high);
+		vertical-align: middle;
+	}
+	.meta {
+		margin: 0.3rem 0 0;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+	}
+	.desc {
+		margin: 0.5rem 0 0;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-2);
+	}
+	.empty {
+		color: var(--sl-color-gray-3);
+	}
+</style>

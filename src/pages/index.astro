@@ -1,0 +1,167 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import EventList from '../components/EventList.astro';
+import eventsData from '../data/events.json';
+
+const upcoming = eventsData.upcoming;
+
+const areas = [
+	{
+		title: 'Freizeit',
+		href: '/leben-in-auringen/freizeit/',
+		text: 'Felsformation im Wald, Spielplatz in den langen Ruten, Wildbret aus der Gemarkung.',
+	},
+	{
+		title: 'Vereine und Organisationen',
+		href: '/leben-in-auringen/vereine/',
+		text: 'Wer in Auringen aktiv ist — von der Feuerwehr bis zur Kerbegesellschaft.',
+	},
+	{
+		title: 'Politik',
+		href: '/leben-in-auringen/politik/',
+		text: 'Ortsbeirat, die Gefahrenstelle am Wellinger, der Gehweg zur Mühle, die Schule in Naurod.',
+	},
+	{
+		title: 'Veranstaltungen',
+		href: '/leben-in-auringen/veranstaltungen/',
+		text: 'Der Auringer Weinstand, der Lebendige Adventskalender und was sonst wiederkehrt.',
+	},
+	{
+		title: 'Geschichte',
+		href: '/geschichte/',
+		text: 'Die beiden Ehrenmale auf dem Auringer Friedhof, dokumentiert mit Fotos und Inschriften.',
+	},
+	{
+		title: 'Zahlen und Wahlergebnisse',
+		href: '/zahlen-und-wahlergebnisse/',
+		text: 'Stadtteilprofil, Wahlergebnisse und die Baulücken im Ort.',
+	},
+];
+---
+
+<StarlightPage
+	frontmatter={{
+		title: 'Auringen Wissen',
+		description:
+			'Was in Wiesbaden-Auringen wichtig ist: Termine, Vereine, Geschichte, Freizeit und Politik.',
+		template: 'splash',
+		hero: {
+			title: 'Auringen Wissen',
+			tagline: 'Was in Wiesbaden-Auringen wichtig ist — gesammelt von Auringern für Auringer.',
+			actions: [
+				{ text: 'Termine ansehen', link: '/termine/', icon: 'right-arrow', variant: 'primary' },
+				{ text: 'Im Wissen stöbern', link: '/leben-in-auringen/', icon: 'open-book', variant: 'minimal' },
+			],
+		},
+	}}
+>
+	<section class="block">
+		<div class="block-head">
+			<h2>Das ist los in Auringen</h2>
+			<a class="more" href="/termine/">Alle Termine →</a>
+		</div>
+		<EventList events={upcoming} limit={4} live />
+		<p class="source">
+			Termine vom <a href="https://www.auringer-events.de" rel="noopener">Auringer Events-Kalender</a>.
+			Dort kann man Termine auch abonnieren.
+		</p>
+	</section>
+
+	<section class="block">
+		<h2>Was hier steht</h2>
+		<ul class="areas">
+			{
+				areas.map((area) => (
+					<li>
+						<a href={area.href}>
+							<strong>{area.title}</strong>
+							<span>{area.text}</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<section class="block about">
+		<h2>Woher das kommt</h2>
+		<p>
+			Diese Seiten sind der erhaltene Inhalt des Auringen-Wikis, das von 2017 bis 2026 unter
+			<em>in-wiesbaden-auringen.de</em> stand. Auringer Bürger und //SEIBERT/MEDIA haben es
+			aufgebaut; 2026 wurde es abgeschaltet und der Inhalt hierher übernommen.
+		</p>
+		<p>
+			Die Termine kommen nicht aus dem Wiki, sondern live aus dem
+			<a href="https://www.auringer-events.de" rel="noopener">Auringer Events-Kalender</a>.
+			Fehlt etwas oder ist etwas falsch? Der Weg dazu steht auf der
+			<a href="/termine/">Terminseite</a>.
+		</p>
+	</section>
+</StarlightPage>
+
+<style>
+	.block {
+		max-width: 60rem;
+		margin: 0 auto 3.5rem;
+		padding: 0 1rem;
+	}
+	.block h2 {
+		font-size: var(--sl-text-h2);
+		margin: 0 0 1.1rem;
+	}
+	.block-head {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+	.more {
+		font-size: var(--sl-text-sm);
+		text-decoration: none;
+	}
+	.source {
+		margin-top: 0.9rem;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+	}
+	.areas {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+		gap: 1rem;
+	}
+	.areas li {
+		margin: 0;
+	}
+	.areas a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		height: 100%;
+		padding: 1.1rem 1.2rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.6rem;
+		background: var(--sl-color-bg-nav);
+		text-decoration: none;
+		color: var(--sl-color-gray-2);
+		transition: border-color 0.15s;
+	}
+	.areas a:hover {
+		border-color: var(--sl-color-accent);
+	}
+	.areas strong {
+		color: var(--sl-color-white);
+		font-size: var(--sl-text-lg);
+	}
+	.areas span {
+		font-size: var(--sl-text-sm);
+		line-height: 1.45;
+	}
+	.about p {
+		max-width: 46rem;
+		color: var(--sl-color-gray-2);
+	}
+</style>
