@@ -21,8 +21,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: pnpm }
       - run: pnpm install --frozen-lockfile
-      # Geprüft wird der Code, nicht der Live-Kalender: der Fixture hält den
-      # Check unabhängig von auringer-events.de. deploy.yml bleibt am echten Feed.
+      # Prüfquelle ist der Fixture, nicht der Live-Kalender.
       - run: pnpm build
         env:
           EVENTS_ICS_URL: .github/fixtures/calendar.ics

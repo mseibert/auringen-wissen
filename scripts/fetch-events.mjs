@@ -5,10 +5,11 @@
  * Läuft vor jedem Build. Der Feed ist die einzige Schnittstelle: keine
  * Datenbank, kein Token, keine Kopplung an die Next.js-App.
  *
- * `EVENTS_ICS_URL` überschreibt die Quelle. Ein http(s)-URL wird geholt, jeder
- * andere Wert als Datei gelesen — so baut die CI gegen einen Fixture im Repo,
- * während der Deploy am echten Feed bleibt. Fällt die Quelle aus, wird nur
- * gewarnt: ein fremder Ausfall darf den Build nicht rot machen.
+ * `EVENTS_ICS_URL` überschreibt die Quelle: ein http(s)-URL wird geholt, jeder
+ * andere Wert als Datei relativ zur Repo-Wurzel gelesen — so baut die CI gegen
+ * einen Fixture, während der Deploy am echten Feed bleibt. Fällt der Feed aus,
+ * wird gewarnt und mit dem vorhandenen Stand weitergebaut; eine unlesbare
+ * Datei-Quelle bricht dagegen ab, weil sie ein Fehler im Repo ist.
  */
 import { existsSync } from 'node:fs';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -23,14 +24,29 @@ function warn(message) {
 	if (process.env.GITHUB_ACTIONS) console.warn(`::warning::${message}`);
 }
 
-/** Feed als Text: http(s) über das Netz, alles andere als Datei im Repo. */
+/**
+ * Feed als Text. Gibt `null` zurück, wenn der http(s)-Feed nicht erreichbar
+ * ist; eine unlesbare Datei-Quelle beendet den Lauf mit Status 1.
+ */
 async function readFeed() {
-	if (/^https?:\/\//i.test(FEED)) {
+	if (!/^https?:\/\//i.test(FEED)) {
+		const path = resolve(import.meta.dirname, '..', FEED);
+		try {
+			return await readFile(path, 'utf8');
+		} catch (error) {
+			console.error(`[events] Datei-Quelle nicht lesbar (${path}): ${error.message}`);
+			process.exit(1);
+		}
+	}
+
+	try {
 		const res = await fetch(FEED, { headers: { accept: 'text/calendar' } });
 		if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-		return res.text();
+		return await res.text();
+	} catch (error) {
+		warn(`Feed nicht erreichbar (${FEED}): ${error.message}`);
+		return null;
 	}
-	return readFile(resolve(import.meta.dirname, '..', FEED.replace(/^file:\/\//, '')), 'utf8');
 }
 
 /** ICS-Zeilen entfalten (RFC 5545: Fortsetzung beginnt mit Space oder Tab). */
@@ -160,10 +176,7 @@ async function writeOut(events, upcoming) {
 	);
 }
 
-const raw = await readFeed().catch((error) => {
-	warn(`Feed nicht erreichbar (${FEED}): ${error.message}`);
-	return null;
-});
+const raw = await readFeed();
 
 if (raw === null) {
 	if (existsSync(OUT)) {

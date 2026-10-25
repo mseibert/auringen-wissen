@@ -78,13 +78,18 @@ Zwei Wege, ein Ergebnis:
    nicht lesbar. Den JSON-Endpunkt liefert die Events-App
    (`auringer-events`, PR #93).
 
-Fällt der Endpunkt aus, bleibt der Build-Zeit-Stand stehen.
+Fällt `/api/public/events` aus, bleibt der Build-Zeit-Stand stehen.
 
 Die Quelle des Build-Zeit-Abrufs steht in `EVENTS_ICS_URL`: ein `http(s)`-URL
-wird geholt, jeder andere Wert als Datei gelesen. Der PR-Build
-(`.github/workflows/pr-build.yml`) zeigt dafür auf den Fixture
-`.github/fixtures/calendar.ics`, damit ein Ausfall von auringer-events.de den
-Check nicht rot macht; `deploy.yml` bleibt am echten Feed. Ist die Quelle nicht
-erreichbar, warnt `fetch-events.mjs` und baut mit dem letzten Stand weiter.
+wird geholt, jeder andere Wert als Datei relativ zur Repo-Wurzel gelesen. Der
+PR-Build (`.github/workflows/pr-build.yml`) zeigt auf den Fixture
+`.github/fixtures/calendar.ics`; `deploy.yml` setzt die Variable nicht und holt
+weiter den echten Feed. Die Fixture-Termine liegen bewusst weit in der Zukunft,
+damit `upcoming` im Check gefüllt bleibt.
+
+Ist der Feed nicht erreichbar, warnt `fetch-events.mjs` und baut mit einer
+vorhandenen `src/data/events.json` weiter, sonst mit leerer Terminliste. Eine
+unlesbare Datei-Quelle bricht den Build dagegen ab: sie ist ein Fehler im Repo,
+kein fremder Ausfall.
 
 `src/data/events.json` ist gitignored — es entsteht bei jedem Build neu.
