@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//auringen-wissen//CI-Fixture//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:fixture-weinstand@auringen-wissen.invalid
+DTSTAMP:20990101T000000Z
+DTSTART;TZID=Europe/Berlin:20990517T180000
+DTEND;TZID=Europe/Berlin:20990517T220000
+SUMMARY:Weinstand am Dorfplatz (Fixture)
+LOCATION:Dorfplatz Auringen\, Rathausplatz
+ORGANIZER;CN=Kerbegesellschaft Auringen:mailto:kerb@example.invalid
+DESCRIPTION:Termin mit Uhrzeit.\nVeranstalter: Kerbegesellschaft Aur
+ ingen
+URL:https://example.invalid/weinstand
+END:VEVENT
+BEGIN:VEVENT
+UID:fixture-adventskalender@auringen-wissen.invalid
+DTSTAMP:20990101T000000Z
+DTSTART;VALUE=DATE:20991201
+SUMMARY:Lebendiger Adventskalender (Fixture)
+DESCRIPTION:Ganztägiger Termin.\nVeranstalter: Ortsbeirat Auringen
+END:VEVENT
+BEGIN:VEVENT
+UID:fixture-abgesagt@auringen-wissen.invalid
+DTSTAMP:20990101T000000Z
+DTSTART:20990620T100000Z
+DTEND:20990620T120000Z
+SUMMARY:Abgesagt: Flohmarkt (Fixture)
+STATUS:CANCELLED
+END:VEVENT
+END:VCALENDAR

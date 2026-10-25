@@ -4,11 +4,15 @@ import EventList from '../components/EventList.astro';
 import eventsData from '../data/events.json';
 
 const upcoming = eventsData.upcoming;
-const fetched = new Intl.DateTimeFormat('de-DE', {
-	dateStyle: 'medium',
-	timeStyle: 'short',
-	timeZone: 'Europe/Berlin',
-}).format(new Date(eventsData.fetchedAt));
+// Bei gescheitertem Abruf schreibt das Skript `fetchedAt: null` — dann gibt es
+// keinen Abrufstempel und die Seite sagt, dass der Kalender nicht erreichbar war.
+const fetched = eventsData.fetchedAt
+	? new Intl.DateTimeFormat('de-DE', {
+			dateStyle: 'medium',
+			timeStyle: 'short',
+			timeZone: 'Europe/Berlin',
+		}).format(new Date(eventsData.fetchedAt))
+	: null;
 ---
 
 <StarlightPage
@@ -25,7 +29,11 @@ const fetched = new Intl.DateTimeFormat('de-DE', {
 		einreichen.
 	</p>
 
-	<EventList events={upcoming} live />
+	<EventList
+		events={upcoming}
+		live
+		empty={fetched ? undefined : 'Die Termine konnten zuletzt nicht geladen werden.'}
+	/>
 
 	<h2 id="abonnieren">Termine abonnieren</h2>
 	<p>
@@ -56,8 +64,11 @@ const fetched = new Intl.DateTimeFormat('de-DE', {
 	</p>
 
 	<p class="stamp">
-		Zuletzt vom Kalender geholt: {fetched} Uhr. Die Anzeige aktualisiert sich beim Laden der
-		Seite selbst.
+		{
+			fetched
+				? `Zuletzt vom Kalender geholt: ${fetched} Uhr. Die Anzeige aktualisiert sich beim Laden der Seite selbst.`
+				: 'Der Kalender war beim Bau nicht erreichbar. Die Anzeige lädt die Termine beim Laden der Seite selbst.'
+		}
 	</p>
 </StarlightPage>
 
