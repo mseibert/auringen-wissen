@@ -4,12 +4,34 @@
  *
  * Läuft vor jedem Build. Der Feed ist die einzige Schnittstelle: keine
  * Datenbank, kein Token, keine Kopplung an die Next.js-App.
+ *
+ * `EVENTS_ICS_URL` überschreibt die Quelle. Ein http(s)-URL wird geholt, jeder
+ * andere Wert als Datei gelesen — so baut die CI gegen einen Fixture im Repo,
+ * während der Deploy am echten Feed bleibt. Fällt die Quelle aus, wird nur
+ * gewarnt: ein fremder Ausfall darf den Build nicht rot machen.
  */
-import { writeFile, mkdir } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 
 const FEED = process.env.EVENTS_ICS_URL ?? 'https://www.auringer-events.de/calendar.ics';
 const OUT = resolve(import.meta.dirname, '../src/data/events.json');
+
+/** Warnung, in GitHub Actions zusätzlich als Annotation im Check-Log. */
+function warn(message) {
+	console.warn(`[events] ${message}`);
+	if (process.env.GITHUB_ACTIONS) console.warn(`::warning::${message}`);
+}
+
+/** Feed als Text: http(s) über das Netz, alles andere als Datei im Repo. */
+async function readFeed() {
+	if (/^https?:\/\//i.test(FEED)) {
+		const res = await fetch(FEED, { headers: { accept: 'text/calendar' } });
+		if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+		return res.text();
+	}
+	return readFile(resolve(import.meta.dirname, '..', FEED.replace(/^file:\/\//, '')), 'utf8');
+}
 
 /** ICS-Zeilen entfalten (RFC 5545: Fortsetzung beginnt mit Space oder Tab). */
 function unfold(text) {
@@ -126,13 +148,33 @@ function splitDescription(text = '') {
 	return { text: text.slice(0, m.index).trim(), organizer: m[1].trim() };
 }
 
-const res = await fetch(FEED, { headers: { accept: 'text/calendar' } });
-if (!res.ok) {
-	console.error(`[events] Feed nicht erreichbar: ${res.status} ${res.statusText}`);
-	process.exit(1);
+async function writeOut(events, upcoming) {
+	await mkdir(dirname(OUT), { recursive: true });
+	await writeFile(
+		OUT,
+		JSON.stringify(
+			{ fetchedAt: new Date().toISOString(), source: FEED, events, upcoming },
+			null,
+			'\t',
+		) + '\n',
+	);
 }
 
-const raw = await res.text();
+const raw = await readFeed().catch((error) => {
+	warn(`Feed nicht erreichbar (${FEED}): ${error.message}`);
+	return null;
+});
+
+if (raw === null) {
+	if (existsSync(OUT)) {
+		warn('Build läuft mit dem vorhandenen Terminstand weiter');
+	} else {
+		warn('Kein vorhandener Terminstand, Build läuft mit leerer Terminliste weiter');
+		await writeOut([], []);
+	}
+	process.exit(0);
+}
+
 const parsed = parseIcs(raw);
 const events = parsed
 	.map((e) => {
@@ -155,10 +197,6 @@ const events = parsed
 const today = new Date().toISOString().slice(0, 10);
 const upcoming = events.filter((e) => e.start.slice(0, 10) >= today);
 
-await mkdir(dirname(OUT), { recursive: true });
-await writeFile(
-	OUT,
-	JSON.stringify({ fetchedAt: new Date().toISOString(), source: FEED, events, upcoming }, null, '\t') + '\n',
-);
+await writeOut(events, upcoming);
 
 console.log(`[events] ${events.length} Termine gelesen, ${upcoming.length} davon künftig`);

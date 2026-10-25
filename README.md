@@ -80,4 +80,11 @@ Zwei Wege, ein Ergebnis:
 
 Fällt der Endpunkt aus, bleibt der Build-Zeit-Stand stehen.
 
+Die Quelle des Build-Zeit-Abrufs steht in `EVENTS_ICS_URL`: ein `http(s)`-URL
+wird geholt, jeder andere Wert als Datei gelesen. Der PR-Build
+(`.github/workflows/pr-build.yml`) zeigt dafür auf den Fixture
+`.github/fixtures/calendar.ics`, damit ein Ausfall von auringer-events.de den
+Check nicht rot macht; `deploy.yml` bleibt am echten Feed. Ist die Quelle nicht
+erreichbar, warnt `fetch-events.mjs` und baut mit dem letzten Stand weiter.
+
 `src/data/events.json` ist gitignored — es entsteht bei jedem Build neu.

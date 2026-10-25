@@ -1,7 +1,16 @@
 name: PR Build
+
 on:
   pull_request:
     branches: [main]
+  push:
+    branches: [main]
+
+# `pnpm install` führt postinstall-Skripte aus dem PR-Code aus. Der Job braucht
+# nur Lesen; ohne diesen Block stünde dem Token der Repo-Default offen.
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,4 +21,8 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: pnpm }
       - run: pnpm install --frozen-lockfile
+      # Geprüft wird der Code, nicht der Live-Kalender: der Fixture hält den
+      # Check unabhängig von auringer-events.de. deploy.yml bleibt am echten Feed.
       - run: pnpm build
+        env:
+          EVENTS_ICS_URL: .github/fixtures/calendar.ics
