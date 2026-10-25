@@ -84,8 +84,9 @@ Die Quelle des Build-Zeit-Abrufs steht in `EVENTS_ICS_URL`: ein `http(s)`-URL
 wird geholt, jeder andere Wert als Datei relativ zur Repo-Wurzel gelesen. Der
 PR-Build (`.github/workflows/pr-build.yml`) zeigt auf den Fixture
 `.github/fixtures/calendar.ics`; `deploy.yml` setzt die Variable nicht und holt
-weiter den echten Feed. Die Fixture-Termine liegen bewusst weit in der Zukunft,
-damit `upcoming` im Check gefüllt bleibt.
+den Live-Feed. Die Fixture-Termine liegen weit in der Zukunft, damit `upcoming`
+im CI-Build gefüllt bleibt; der Zeilenumbruch in der `DESCRIPTION` prüft die
+RFC-5545-Faltung.
 
 Ist der Feed nicht erreichbar, warnt `fetch-events.mjs` und baut mit einer
 vorhandenen `src/data/events.json` weiter, sonst mit leerer Terminliste. Eine

@@ -6,8 +6,7 @@ on:
   push:
     branches: [main]
 
-# `pnpm install` führt postinstall-Skripte aus dem PR-Code aus. Der Job braucht
-# nur Lesen; ohne diesen Block stünde dem Token der Repo-Default offen.
+# `pnpm install` führt postinstall-Skripte aus dem PR-Code aus; der Job braucht nur Lesen.
 permissions:
   contents: read
 
@@ -21,7 +20,6 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: pnpm }
       - run: pnpm install --frozen-lockfile
-      # Prüfquelle ist der Fixture, nicht der Live-Kalender.
       - run: pnpm build
         env:
           EVENTS_ICS_URL: .github/fixtures/calendar.ics

@@ -18,25 +18,19 @@ import { dirname, resolve } from 'node:path';
 const FEED = process.env.EVENTS_ICS_URL ?? 'https://www.auringer-events.de/calendar.ics';
 const OUT = resolve(import.meta.dirname, '../src/data/events.json');
 
-/** Warnung, in GitHub Actions zusätzlich als Annotation im Check-Log. */
+/** Warnung, in GitHub Actions als Annotation im Check-Log. */
 function warn(message) {
-	console.warn(`[events] ${message}`);
 	if (process.env.GITHUB_ACTIONS) console.warn(`::warning::${message}`);
+	else console.warn(`[events] ${message}`);
 }
 
 /**
  * Feed als Text. Gibt `null` zurück, wenn der http(s)-Feed nicht erreichbar
- * ist; eine unlesbare Datei-Quelle beendet den Lauf mit Status 1.
+ * ist; eine unlesbare Datei-Quelle wirft.
  */
 async function readFeed() {
 	if (!/^https?:\/\//i.test(FEED)) {
-		const path = resolve(import.meta.dirname, '..', FEED);
-		try {
-			return await readFile(path, 'utf8');
-		} catch (error) {
-			console.error(`[events] Datei-Quelle nicht lesbar (${path}): ${error.message}`);
-			process.exit(1);
-		}
+		return readFile(resolve(import.meta.dirname, '..', FEED), 'utf8');
 	}
 
 	try {
@@ -176,7 +170,13 @@ async function writeOut(events, upcoming) {
 	);
 }
 
-const raw = await readFeed();
+let raw;
+try {
+	raw = await readFeed();
+} catch (error) {
+	console.error(`[events] Datei-Quelle nicht lesbar (${FEED}): ${error.message}`);
+	process.exit(1);
+}
 
 if (raw === null) {
 	if (existsSync(OUT)) {
