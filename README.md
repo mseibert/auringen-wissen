@@ -83,14 +83,17 @@ Fällt `/api/public/events` aus, bleibt der Build-Zeit-Stand stehen.
 Die Quelle des Build-Zeit-Abrufs steht in `EVENTS_ICS_URL`: ein `http(s)`-URL
 wird geholt, jeder andere Wert als Datei relativ zur Repo-Wurzel gelesen. Der
 PR-Build (`.github/workflows/pr-build.yml`) zeigt auf den Fixture
-`.github/fixtures/calendar.ics`; `deploy.yml` setzt die Variable nicht und holt
-den Live-Feed. Die Fixture-Termine liegen weit in der Zukunft, damit `upcoming`
-im CI-Build gefüllt bleibt; der Zeilenumbruch in der `DESCRIPTION` prüft die
-RFC-5545-Faltung.
+`.github/fixtures/calendar.ics`. Den Live-Abruf macht allein der Docker-Build
+(`Dockerfile`), den `deploy.yml` über Coolify auslöst; dort bleibt die Variable
+ungesetzt. Die Fixture-Termine liegen weit in der Zukunft, damit `upcoming` im
+CI-Build gefüllt bleibt; der Zeilenumbruch in der `DESCRIPTION` ist
+RFC-5545-Faltung, kein Tippfehler.
 
 Ist der Feed nicht erreichbar, warnt `fetch-events.mjs` und baut mit einer
-vorhandenen `src/data/events.json` weiter, sonst mit leerer Terminliste. Eine
-unlesbare Datei-Quelle bricht den Build dagegen ab: sie ist ein Fehler im Repo,
-kein fremder Ausfall.
+vorhandenen `src/data/events.json` weiter, sonst mit leerer Terminliste ohne
+Abrufstempel — die Terminseite sagt dann, dass der Kalender beim Bau nicht
+erreichbar war. Eine unlesbare Datei-Quelle bricht den Build dagegen ab: sie ist
+ein Fehler im Repo, kein fremder Ausfall. Der Abruf hat eine Deadline von 10 s,
+damit ein hängender Feed den Build nicht blockiert.
 
 `src/data/events.json` ist gitignored — es entsteht bei jedem Build neu.

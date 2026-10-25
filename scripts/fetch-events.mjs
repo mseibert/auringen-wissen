@@ -9,7 +9,8 @@
  * andere Wert als Datei relativ zur Repo-Wurzel gelesen — so baut die CI gegen
  * einen Fixture, während der Deploy am echten Feed bleibt. Fällt der Feed aus,
  * wird gewarnt und mit dem vorhandenen Stand weitergebaut; eine unlesbare
- * Datei-Quelle bricht dagegen ab, weil sie ein Fehler im Repo ist.
+ * Datei-Quelle bricht dagegen ab, weil sie ein Fehler im Repo ist. Der Abruf
+ * hat eine Deadline von 10 s, damit ein hängender Feed den Build nicht blockiert.
  */
 import { existsSync } from 'node:fs';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -34,7 +35,10 @@ async function readFeed() {
 	}
 
 	try {
-		const res = await fetch(FEED, { headers: { accept: 'text/calendar' } });
+		const res = await fetch(FEED, {
+			headers: { accept: 'text/calendar' },
+			signal: AbortSignal.timeout(10_000),
+		});
 		if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
 		return await res.text();
 	} catch (error) {
@@ -158,15 +162,15 @@ function splitDescription(text = '') {
 	return { text: text.slice(0, m.index).trim(), organizer: m[1].trim() };
 }
 
-async function writeOut(events, upcoming) {
+/**
+ * Schreibt den Stand. `fetchedAt` ist `null`, wenn der Abruf gescheitert ist:
+ * die Seite stempelt dann keinen frischen Abruf.
+ */
+async function writeOut(fetchedAt, events, upcoming) {
 	await mkdir(dirname(OUT), { recursive: true });
 	await writeFile(
 		OUT,
-		JSON.stringify(
-			{ fetchedAt: new Date().toISOString(), source: FEED, events, upcoming },
-			null,
-			'\t',
-		) + '\n',
+		JSON.stringify({ fetchedAt, source: FEED, events, upcoming }, null, '\t') + '\n',
 	);
 }
 
@@ -183,7 +187,7 @@ if (raw === null) {
 		warn('Build läuft mit dem vorhandenen Terminstand weiter');
 	} else {
 		warn('Kein vorhandener Terminstand, Build läuft mit leerer Terminliste weiter');
-		await writeOut([], []);
+		await writeOut(null, [], []);
 	}
 	process.exit(0);
 }
@@ -210,6 +214,6 @@ const events = parsed
 const today = new Date().toISOString().slice(0, 10);
 const upcoming = events.filter((e) => e.start.slice(0, 10) >= today);
 
-await writeOut(events, upcoming);
+await writeOut(new Date().toISOString(), events, upcoming);
 
 console.log(`[events] ${events.length} Termine gelesen, ${upcoming.length} davon künftig`);
