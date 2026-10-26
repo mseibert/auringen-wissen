@@ -18,7 +18,6 @@ folgende Vereine sind in Auringen aktiv und freuen sich über Interesse an Ihrer
 | [Ortsvereinsring Auringen](http://www.ovr-auringen.de/startseite-ovr-auringen.cfm) | Vorsitzender: Roger Keil, Tel.: 06127/45 17, E-Mail: [info@ovr-auringen.de](mailto:info@ovr-auringen.de) |
 | [Radfahrclub 1907 Auringen e.V.](http://www.rc07-auringen.de/) | |
 | Schützenclub Diana Auringen e.V. | |
-| [Skiclub Auringen e.V.](http://www.ski-club-auringen.de/) | Harald Schwill, Telefon: 06127 / 4228, Telefax: 06127 / 66776, E-Mail: [info@ski-club-auringen.de](mailto:info@ski-club-auringen.de) |
 | [TSV Auringen 1886 e.V.](http://www.tsv-auringen.de) | 1\. Vorsitzender: Klaus Dieter Sommer, Tel. +49 6127 62335, Telefax +49 6127 968632, [vorstand@tsv-auringen.de](mailto:vorstand@tsv-auringen.de) |
 
  
