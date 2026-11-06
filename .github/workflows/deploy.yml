@@ -19,7 +19,9 @@ jobs:
             echo "::error::Secret COOLIFY_TOKEN fehlt"
             exit 1
           fi
-          response=$(curl -fsS -H "Authorization: Bearer $COOLIFY_TOKEN" \
+          # POST, nicht GET: Coolify behandelt den Deploy-Endpunkt seit 4.6
+          # als zustandsaendernd und beantwortet GET mit 405.
+          response=$(curl -fsS -X POST -H "Authorization: Bearer $COOLIFY_TOKEN" \
             "https://coolify.seibert.app/api/v1/deploy?uuid=$APP_UUID")
           echo "$response"
           deployment=$(echo "$response" | jq -r '.deployments[0].deployment_uuid')
